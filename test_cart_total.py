@@ -11,7 +11,7 @@ from cart_total import calculate_total
 def test_calculate_total_isvalid(price, qty, expected):
     assert calculate_total(price, qty) == expected
 
-# Invalid Data Types -> TypeError
+# Invalid Data Types raises TypeError
 @pytest.mark.parametrize("price, qty", [
     ("1000", 2),
     (1000, "2"),
@@ -20,16 +20,16 @@ def test_calculate_total_isvalid(price, qty, expected):
     (1000, False),
     (None, 1),
 ])
-def test_calculate_total_type_error(price, qty):
+def test_calculate_total_raises_type_error(price, qty):
     with pytest.raises(TypeError):
         calculate_total(price, qty)
 
-# Out-of-Range Values -> ValueError
+# Out-of-Range Values raises ValueError
 @pytest.mark.parametrize("price, qty", [
     (-1, 2),
     (1000, -1),
     (-100, -5),
 ])
-def test_calculate_total_value_error(price, qty):
+def test_calculate_total_raises_value_error(price, qty):
     with pytest.raises(ValueError):
         calculate_total(price, qty)
