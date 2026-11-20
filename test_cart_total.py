@@ -16,7 +16,7 @@ def test_calculate_total_isvalid(price, qty, expected):
     ("1000", 2),
     (1000, "2"),
     (10.50, 2),
-    (True, 2),            # Boolean check per General Requirement 2
+    (True, 2),            
     (1000, False),
     (None, 1),
 ])
